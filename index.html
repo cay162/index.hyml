@@ -1,0 +1,1160 @@
+```html
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CAY | مكافحة الابتزاز الإلكتروني</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Tahoma,Arial,sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:#05070b;
+color:#fff;
+line-height:1.8;
+}
+
+header{
+position:fixed;
+top:0;
+width:100%;
+z-index:999;
+background:rgba(5,7,11,.9);
+backdrop-filter:blur(15px);
+border-bottom:1px solid #18212b;
+}
+
+nav{
+max-width:1200px;
+margin:auto;
+padding:15px 20px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+}
+
+.logo-small{
+font-size:27px;
+font-weight:900;
+letter-spacing:5px;
+}
+
+nav ul{
+display:flex;
+list-style:none;
+gap:20px;
+}
+
+nav a{
+color:#c4ccd5;
+text-decoration:none;
+font-size:14px;
+transition:.3s;
+}
+
+nav a:hover{
+color:#fff;
+}
+
+.menu{
+display:none;
+font-size:25px;
+cursor:pointer;
+}
+
+/* HERO */
+
+.hero{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:120px 20px 70px;
+
+background:
+radial-gradient(circle at center,#142435 0%,#080b10 42%,#05070b 80%);
+}
+
+.hero-content{
+max-width:900px;
+}
+
+.logo{
+font-size:100px;
+font-weight:900;
+letter-spacing:15px;
+text-shadow:0 0 40px rgba(255,255,255,.18);
+}
+
+/* العراق + إيران */
+
+.flags{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:18px;
+margin:12px 0 20px;
+font-size:18px;
+color:#d7dee6;
+}
+
+.flags strong{
+font-size:22px;
+color:#7f8b98;
+}
+
+.badge{
+display:inline-block;
+border:1px solid #34495e;
+padding:5px 18px;
+border-radius:50px;
+color:#aebdcb;
+margin:10px 0 20px;
+font-size:13px;
+}
+
+.hero h1{
+font-size:45px;
+margin-bottom:20px;
+}
+
+.hero p{
+color:#9faab6;
+font-size:18px;
+margin-bottom:30px;
+}
+
+.buttons{
+display:flex;
+justify-content:center;
+gap:12px;
+flex-wrap:wrap;
+}
+
+.btn{
+padding:12px 25px;
+border-radius:10px;
+border:1px solid #3a4d61;
+text-decoration:none;
+color:#fff;
+transition:.3s;
+}
+
+.btn.primary{
+background:#fff;
+color:#05070b;
+}
+
+.btn:hover{
+transform:translateY(-4px);
+box-shadow:0 10px 30px rgba(255,255,255,.08);
+}
+
+/* SECTIONS */
+
+section{
+max-width:1150px;
+margin:auto;
+padding:90px 20px;
+}
+
+.title{
+text-align:center;
+margin-bottom:45px;
+}
+
+.title h2{
+font-size:32px;
+}
+
+.title p{
+color:#7f8b98;
+margin-top:5px;
+}
+
+/* CARDS */
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+gap:20px;
+}
+
+.card{
+background:linear-gradient(145deg,#0d131b,#080b10);
+border:1px solid #1c2936;
+border-radius:18px;
+padding:30px;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-7px);
+border-color:#42566b;
+}
+
+.icon{
+font-size:38px;
+margin-bottom:15px;
+}
+
+.card h3{
+margin-bottom:10px;
+}
+
+.card p{
+color:#9ba6b2;
+font-size:15px;
+}
+
+/* STEPS */
+
+.steps{
+display:grid;
+gap:15px;
+}
+
+.step{
+display:flex;
+align-items:center;
+gap:20px;
+background:#0b1016;
+border:1px solid #1c2834;
+padding:20px;
+border-radius:15px;
+}
+
+.number{
+min-width:45px;
+height:45px;
+display:flex;
+align-items:center;
+justify-content:center;
+background:#fff;
+color:#05070b;
+border-radius:50%;
+font-weight:bold;
+}
+
+.tip{
+margin-top:30px;
+background:#0d141c;
+border-right:4px solid #fff;
+padding:25px;
+border-radius:10px;
+color:#b4bec9;
+}
+
+/* SEARCH */
+
+.search-box{
+max-width:600px;
+margin:0 auto 35px;
+display:flex;
+gap:10px;
+}
+
+.search-box input{
+width:100%;
+padding:14px;
+background:#0d131a;
+border:1px solid #273544;
+border-radius:10px;
+color:white;
+outline:none;
+}
+
+/* FAQ */
+
+.faq{
+display:grid;
+gap:12px;
+}
+
+details{
+background:#0c1219;
+border:1px solid #1c2834;
+padding:18px;
+border-radius:12px;
+cursor:pointer;
+}
+
+summary{
+font-weight:bold;
+}
+
+details p{
+color:#9da8b4;
+margin-top:12px;
+}
+
+/* CONTACT */
+
+.contact{
+text-align:center;
+background:linear-gradient(145deg,#101923,#080b10);
+border:1px solid #233241;
+padding:45px 20px;
+border-radius:22px;
+}
+
+.contact a{
+display:block;
+color:white;
+text-decoration:none;
+font-size:18px;
+margin:15px;
+}
+
+.contact a:hover{
+text-decoration:underline;
+}
+
+/* FOOTER */
+
+footer{
+text-align:center;
+padding:35px 20px;
+border-top:1px solid #18212b;
+color:#687582;
+font-size:14px;
+}
+
+/* TOP BUTTON */
+
+.top{
+position:fixed;
+bottom:20px;
+left:20px;
+width:45px;
+height:45px;
+display:flex;
+align-items:center;
+justify-content:center;
+background:#fff;
+color:#05070b;
+border-radius:50%;
+text-decoration:none;
+font-weight:bold;
+}
+
+/* MOBILE */
+
+@media(max-width:850px){
+
+nav ul{
+display:none;
+position:absolute;
+top:65px;
+right:0;
+width:100%;
+background:#080b10;
+flex-direction:column;
+padding:20px;
+border-bottom:1px solid #1d2935;
+}
+
+nav ul.active{
+display:flex;
+}
+
+.menu{
+display:block;
+}
+
+.logo{
+font-size:70px;
+}
+
+.hero h1{
+font-size:30px;
+}
+
+}
+
+@media(max-width:600px){
+
+.flags{
+font-size:15px;
+gap:10px;
+}
+
+.flags strong{
+font-size:18px;
+}
+
+.hero p{
+font-size:16px;
+}
+
+section{
+padding:65px 18px;
+}
+
+}
+
+</style>
+
+</head>
+
+
+<body id="top">
+
+
+<!-- NAVIGATION -->
+
+<header>
+
+<nav>
+
+<div class="logo-small">
+CAY
+</div>
+
+<div class="menu" onclick="toggleMenu()">
+☰
+</div>
+
+<ul id="navMenu">
+
+<li><a href="#home">الرئيسية</a></li>
+
+<li><a href="#about">عن CAY</a></li>
+
+<li><a href="#blackmail">الابتزاز</a></li>
+
+<li><a href="#steps">ماذا أفعل؟</a></li>
+
+<li><a href="#security">الحماية</a></li>
+
+<li><a href="#search">البحث</a></li>
+
+<li><a href="#faq">الأسئلة</a></li>
+
+<li><a href="#contact">التواصل</a></li>
+
+</ul>
+
+</nav>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+<div class="hero-content">
+
+<div class="logo">
+CAY
+</div>
+
+
+<div class="flags">
+
+<span>🇮🇶 العراق</span>
+
+<strong>×</strong>
+
+<span>إيران 🇮🇷</span>
+
+</div>
+
+
+<div class="badge">
+🛡️ مبادرة توعوية — النجف الأشرف
+</div>
+
+
+<h1>
+معاً لمواجهة الابتزاز الإلكتروني
+</h1>
+
+
+<p>
+
+منصة توعوية تهدف إلى نشر الوعي الرقمي،
+حماية الخصوصية، ومساعدة الأشخاص على معرفة
+الخطوات الآمنة عند التعرض للابتزاز الإلكتروني.
+
+</p>
+
+
+<div class="buttons">
+
+<a href="#steps" class="btn primary">
+🚨 ماذا أفعل؟
+</a>
+
+<a href="#contact" class="btn">
+📞 تواصل معنا
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+<div class="title">
+
+<h2>🛡️ عن CAY</h2>
+
+<p>
+التوعية الرقمية تبدأ بالمعلومة الصحيحة
+</p>
+
+</div>
+
+
+<div class="cards">
+
+
+<div class="card">
+
+<div class="icon">🎯</div>
+
+<h3>
+هدفنا
+</h3>
+
+<p>
+نشر الوعي حول مخاطر الابتزاز والاحتيال
+والحفاظ على الخصوصية الرقمية.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">🇮🇶</div>
+
+<h3>
+العراق
+</h3>
+
+<p>
+محتوى توعوي للمستخدمين في العراق
+مع التأكيد على أهمية الرجوع للجهات الرسمية.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">🇮🇷</div>
+
+<h3>
+إيران
+</h3>
+
+<p>
+التوعية الرقمية والتعاون المجتمعي
+عبر الحدود في مواجهة المخاطر الإلكترونية.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">🤝</div>
+
+<h3>
+المساندة
+</h3>
+
+<p>
+تشجيع المتضررين على طلب المساعدة
+من شخص موثوق أو جهة مختصة.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- BLACKMAIL -->
+
+<section id="blackmail">
+
+<div class="title">
+
+<h2>
+⚠️ الابتزاز الإلكتروني
+</h2>
+
+<p>
+ما الذي يجب أن تعرفه؟
+</p>
+
+</div>
+
+
+<div class="cards">
+
+
+<div class="card">
+
+<div class="icon">📸</div>
+
+<h3>
+الصور والمقاطع
+</h3>
+
+<p>
+قد يستخدم المبتز صوراً أو مقاطع شخصية
+للضغط على الضحية.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">💰</div>
+
+<h3>
+طلب المال
+</h3>
+
+<p>
+قد يطلب المبتز المال مقابل عدم نشر
+المعلومات أو الملفات.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">🔗</div>
+
+<h3>
+الحسابات المزيفة
+</h3>
+
+<p>
+يمكن أن يستخدم المبتز حسابات أو هويات
+مزيفة للتواصل مع الضحية.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- STEPS -->
+
+<section id="steps">
+
+<div class="title">
+
+<h2>
+🚨 ماذا أفعل إذا تعرضت للابتزاز؟
+</h2>
+
+<p>
+حافظ على هدوئك واتبع الخطوات التالية
+</p>
+
+</div>
+
+
+<div class="steps">
+
+
+<div class="step">
+
+<div class="number">
+1
+</div>
+
+<div>
+
+<h3>
+لا تدفع
+</h3>
+
+<p>
+لا ترسل المال للمبتز.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="step">
+
+<div class="number">
+2
+</div>
+
+<div>
+
+<h3>
+لا ترسل ملفات إضافية
+</h3>
+
+<p>
+لا ترسل صوراً أو معلومات جديدة.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="step">
+
+<div class="number">
+3
+</div>
+
+<div>
+
+<h3>
+احفظ الأدلة
+</h3>
+
+<p>
+احتفظ بالرسائل ولقطات الشاشة وروابط الحسابات.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="step">
+
+<div class="number">
+4
+</div>
+
+<div>
+
+<h3>
+لا تواجه الأمر وحدك
+</h3>
+
+<p>
+أخبر شخصاً تثق به إذا كنت تحتاج للمساعدة.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="step">
+
+<div class="number">
+5
+</div>
+
+<div>
+
+<h3>
+تواصل مع الجهات المختصة
+</h3>
+
+<p>
+استخدم القنوات الرسمية للإبلاغ عن الجريمة.
+</p>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<div class="tip">
+
+<strong>
+مهم جداً:
+</strong>
+
+لا تلوم نفسك.
+التعرض للابتزاز ليس سبباً للخجل،
+والاحتفاظ بالأدلة وطلب المساعدة خطوات مهمة.
+
+</div>
+
+</section>
+
+
+<!-- SECURITY -->
+
+<section id="security">
+
+<div class="title">
+
+<h2>
+🔐 الحماية الرقمية
+</h2>
+
+<p>
+خطوات بسيطة تقلل المخاطر
+</p>
+
+</div>
+
+
+<div class="cards">
+
+
+<div class="card">
+
+<div class="icon">🔑</div>
+
+<h3>
+كلمة مرور قوية
+</h3>
+
+<p>
+استخدم كلمة مرور مختلفة وقوية لكل حساب مهم.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">2️⃣</div>
+
+<h3>
+المصادقة الثنائية
+</h3>
+
+<p>
+فعّل المصادقة الثنائية عندما تكون متاحة.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">📱</div>
+
+<h3>
+أمان الهاتف
+</h3>
+
+<p>
+حدّث نظام الهاتف والتطبيقات باستمرار.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">🌐</div>
+
+<h3>
+السوشيال ميديا
+</h3>
+
+<p>
+راجع إعدادات الخصوصية ولا تقبل طلبات مجهولة.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- SEARCH -->
+
+<section id="search">
+
+<div class="title">
+
+<h2>
+🔎 البحث داخل الموقع
+</h2>
+
+<p>
+ابحث عن موضوع توعوي
+</p>
+
+</div>
+
+
+<div class="search-box">
+
+<input
+type="text"
+id="searchInput"
+placeholder="اكتب مثلاً: حماية الحساب..."
+onkeyup="searchCards()">
+
+</div>
+
+
+<div class="cards" id="searchCards">
+
+
+<div class="card searchable">
+
+<h3>
+حماية الحساب
+</h3>
+
+<p>
+استخدم كلمة مرور قوية والمصادقة الثنائية.
+</p>
+
+</div>
+
+
+<div class="card searchable">
+
+<h3>
+الابتزاز
+</h3>
+
+<p>
+لا تدفع للمبتز واحتفظ بالأدلة.
+</p>
+
+</div>
+
+
+<div class="card searchable">
+
+<h3>
+الخصوصية
+</h3>
+
+<p>
+قلل المعلومات الشخصية التي تنشرها.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- FAQ -->
+
+<section id="faq">
+
+<div class="title">
+
+<h2>
+❓ الأسئلة الشائعة
+</h2>
+
+<p>
+إجابات سريعة
+</p>
+
+</div>
+
+
+<div class="faq">
+
+
+<details>
+
+<summary>
+هل أدفع للمبتز؟
+</summary>
+
+<p>
+لا يُنصح بإرسال المال أو الاستمرار في الاستجابة لطلبات المبتز.
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+هل أحذف المحادثة؟
+</summary>
+
+<p>
+احتفظ بالأدلة ولقطات الشاشة قبل حذف أو حظر الحساب.
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+هل أستطيع طلب المساعدة؟
+</summary>
+
+<p>
+نعم، تحدث مع شخص موثوق وتواصل مع الجهات المختصة عند الحاجة.
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+هل CAY جهة حكومية؟
+</summary>
+
+<p>
+لا. CAY منصة توعوية مستقلة وليست جهة حكومية أو شرطية.
+</p>
+
+</details>
+
+
+</div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+<div class="title">
+
+<h2>
+📞 تواصل معنا
+</h2>
+
+<p>
+النجف الأشرف — العراق
+</p>
+
+</div>
+
+
+<div class="contact">
+
+<a href="tel:07883350604">
+📞 07883350604
+</a>
+
+
+<a href="mailto:bnmvp107@gmail.com">
+✉️ bnmvp107@gmail.com
+</a>
+
+</div>
+
+</section>
+
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+© 2026 CAY — محاربة الابتزاز الإلكتروني
+
+<br>
+
+🇮🇶 العراق × إيران 🇮🇷
+
+<br>
+
+النجف الأشرف — العراق
+
+</footer>
+
+
+<a href="#top" class="top">
+↑
+</a>
+
+
+<script>
+
+function toggleMenu(){
+
+document
+.getElementById("navMenu")
+.classList
+.toggle("active");
+
+}
+
+
+function searchCards(){
+
+let input =
+document
+.getElementById("searchInput")
+.value
+.toLowerCase();
+
+let cards =
+document
+.querySelectorAll(".searchable");
+
+
+cards.forEach(card=>{
+
+let text =
+card.innerText.toLowerCase();
+
+if(text.includes(input)){
+
+card.style.display="block";
+
+}else{
+
+card.style.display="none";
+
+}
+
+});
+
+}
+
+</script>
+
+
+</body>
+
+</html>
+```
