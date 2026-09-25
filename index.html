@@ -4,628 +4,483 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>CAY | التقنية والأمن السيبراني</title>
+<title>CAY | الأمان الرقمي ومحارب الابتزاز</title>
 
 <meta name="description"
-content="CAY منصة تقنية للتعلم في البرمجة والشبكات والأمن السيبراني وLinux والتقنيات الحديثة.">
+content="CAY - منصة للتوعية بالأمان الرقمي، محاربة الابتزاز الإلكتروني، البرمجة، الشبكات، Linux، Kali، Termux وGitHub.">
 
-<meta name="theme-color" content="#050505">
+<meta property="og:title" content="CAY | محارب الابتزاز والأمان الرقمي">
+<meta property="og:description" content="CAY - الأمان الرقمي والتقنية وتصميم المواقع">
+<meta property="og:type" content="website">
 
 <style>
 *{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-  font-family:Arial,sans-serif;
-}
-
-html{
-  scroll-behavior:smooth;
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
 body{
-  background:
-  radial-gradient(circle at top,#17121f 0%,#060606 45%,#000 100%);
-  color:#fff;
-  min-height:100vh;
+    font-family:Arial,Tahoma,sans-serif;
+    background:#050505;
+    color:white;
+    line-height:1.8;
 }
 
 header{
-  position:sticky;
-  top:0;
-  z-index:1000;
-  background:rgba(0,0,0,.88);
-  backdrop-filter:blur(15px);
-  border-bottom:1px solid #222;
-}
-
-nav{
-  max-width:1150px;
-  margin:auto;
-  padding:15px 20px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-
-.logo{
-  font-size:30px;
-  font-weight:900;
-  letter-spacing:4px;
-}
-
-.logo span{
-  color:#8b5cf6;
-}
-
-nav a{
-  color:#ccc;
-  text-decoration:none;
-  margin:0 7px;
-  font-size:14px;
-}
-
-nav a:hover{
-  color:#a78bfa;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:30px;
+    background:
+    radial-gradient(circle at center,#151515 0%,#050505 65%);
 }
 
 .hero{
-  max-width:1150px;
-  margin:auto;
-  padding:100px 20px 80px;
-  text-align:center;
+    max-width:850px;
 }
 
-.badge{
-  display:inline-block;
-  padding:8px 16px;
-  border:1px solid #333;
-  border-radius:30px;
-  background:#111;
-  color:#c4b5fd;
-  margin-bottom:22px;
+.logo{
+    font-size:75px;
+    font-weight:900;
+    letter-spacing:8px;
+    color:white;
+    text-shadow:0 0 30px rgba(255,255,255,.2);
 }
 
-h1{
-  font-size:clamp(55px,11vw,110px);
-  letter-spacing:8px;
-  font-weight:900;
-}
-
-h1 span{
-  color:#8b5cf6;
+.hero h1{
+    font-size:34px;
+    margin:15px 0;
 }
 
 .hero p{
-  max-width:750px;
-  margin:20px auto;
-  color:#999;
-  line-height:2;
-  font-size:17px;
+    color:#aaa;
+    font-size:18px;
 }
 
 .buttons{
-  margin-top:30px;
+    margin-top:30px;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:12px;
 }
 
 .btn{
-  display:inline-block;
-  padding:14px 23px;
-  margin:5px;
-  border-radius:13px;
-  text-decoration:none;
-  font-weight:bold;
-  transition:.2s;
+    text-decoration:none;
+    color:white;
+    border:1px solid #444;
+    padding:12px 22px;
+    border-radius:12px;
+    transition:.3s;
+    background:#101010;
 }
 
-.primary{
-  background:#7c3aed;
-  color:#fff;
-}
-
-.primary:hover{
-  background:#6d28d9;
-  transform:translateY(-2px);
-}
-
-.secondary{
-  background:#111;
-  color:#fff;
-  border:1px solid #333;
+.btn:hover{
+    background:white;
+    color:black;
+    transform:translateY(-3px);
 }
 
 section{
-  max-width:1150px;
-  margin:auto;
-  padding:70px 20px;
+    padding:80px 20px;
+    max-width:1100px;
+    margin:auto;
 }
 
 .title{
-  text-align:center;
-  font-size:36px;
-  margin-bottom:35px;
+    text-align:center;
+    font-size:35px;
+    margin-bottom:15px;
 }
 
-.title span{
-  color:#8b5cf6;
+.subtitle{
+    text-align:center;
+    color:#999;
+    margin-bottom:40px;
 }
 
 .cards{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:18px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
 }
 
 .card{
-  background:#0d0d0d;
-  border:1px solid #252525;
-  border-radius:18px;
-  padding:25px;
-  transition:.2s;
+    background:#0d0d0d;
+    border:1px solid #222;
+    border-radius:18px;
+    padding:25px;
+    transition:.3s;
 }
 
 .card:hover{
-  transform:translateY(-4px);
-  border-color:#54299a;
+    transform:translateY(-5px);
+    border-color:#555;
 }
 
 .card h3{
-  margin-bottom:12px;
+    margin-bottom:10px;
 }
 
 .card p{
-  color:#999;
-  line-height:1.8;
+    color:#aaa;
 }
 
-/* AI */
-
-.ai-box{
-  max-width:900px;
-  margin:auto;
-  background:#090909;
-  border:1px solid #292929;
-  border-radius:22px;
-  overflow:hidden;
-  box-shadow:0 20px 70px rgba(0,0,0,.45);
+.price{
+    font-size:35px;
+    font-weight:bold;
+    margin:15px 0;
 }
 
-.ai-header{
-  display:flex;
-  align-items:center;
-  gap:13px;
-  padding:20px;
-  background:linear-gradient(90deg,#101010,#191026);
-  border-bottom:1px solid #292929;
+.price span{
+    font-size:16px;
+    color:#999;
 }
 
-.ai-icon{
-  width:48px;
-  height:48px;
-  border-radius:50%;
-  background:#7c3aed;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:23px;
+.feature{
+    margin:10px 0;
+    color:#ccc;
 }
 
-.ai-header small{
-  color:#888;
+.feature::before{
+    content:"✓ ";
+    color:#fff;
 }
 
-#chat{
-  height:460px;
-  overflow-y:auto;
-  padding:20px;
+.price-card{
+    text-align:center;
+    border:1px solid #555;
+    background:linear-gradient(145deg,#111,#080808);
 }
 
-.message{
-  max-width:88%;
-  padding:14px 17px;
-  border-radius:16px;
-  margin-bottom:14px;
-  line-height:1.8;
-  white-space:pre-wrap;
-}
-
-.bot{
-  background:#171717;
-  border:1px solid #292929;
-  margin-left:auto;
-}
-
-.user{
-  background:#6d28d9;
-  margin-right:auto;
-}
-
-.typing{
-  display:none;
-  color:#888;
-  padding:0 20px 12px;
-  font-size:13px;
-}
-
-.quick{
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  padding:0 20px 18px;
-}
-
-.quick button{
-  background:#151515;
-  border:1px solid #303030;
-  color:#ccc;
-  border-radius:20px;
-  padding:9px 13px;
-  cursor:pointer;
-}
-
-.quick button:hover{
-  border-color:#7c3aed;
-  color:#fff;
-}
-
-.input-area{
-  display:flex;
-  gap:8px;
-  padding:15px;
-  background:#0c0c0c;
-  border-top:1px solid #292929;
-}
-
-#question{
-  flex:1;
-  background:#161616;
-  border:1px solid #303030;
-  color:#fff;
-  padding:15px;
-  border-radius:12px;
-  outline:none;
-}
-
-#question:focus{
-  border-color:#7c3aed;
-}
-
-#send{
-  background:#7c3aed;
-  color:white;
-  border:0;
-  border-radius:12px;
-  padding:0 22px;
-  cursor:pointer;
-  font-weight:bold;
+.price-card .btn{
+    display:inline-block;
+    margin-top:15px;
 }
 
 .warning{
-  max-width:900px;
-  margin:20px auto 0;
-  padding:16px;
-  background:#110d05;
-  border:1px solid #3f2d13;
-  border-radius:13px;
-  color:#cdbb9c;
-  line-height:1.8;
+    border:1px solid #442222;
+    background:#160909;
+    padding:20px;
+    border-radius:15px;
+    margin-top:25px;
+    color:#ddd;
+}
+
+input,textarea{
+    width:100%;
+    background:#0b0b0b;
+    border:1px solid #333;
+    color:white;
+    padding:14px;
+    border-radius:10px;
+    margin:8px 0;
+    outline:none;
+}
+
+textarea{
+    min-height:130px;
+    resize:vertical;
+}
+
+button{
+    cursor:pointer;
+    font-family:inherit;
+}
+
+.chat{
+    background:#0b0b0b;
+    border:1px solid #222;
+    border-radius:18px;
+    padding:20px;
+}
+
+.chat-box{
+    height:300px;
+    overflow-y:auto;
+    background:#050505;
+    padding:15px;
+    border-radius:12px;
+    margin-bottom:15px;
+}
+
+.message{
+    padding:10px 14px;
+    margin:8px 0;
+    border-radius:10px;
+    max-width:90%;
+}
+
+.user{
+    background:#202020;
+    margin-right:auto;
+}
+
+.bot{
+    background:#111;
+    border:1px solid #252525;
+}
+
+.code{
+    background:#020202;
+    border:1px solid #222;
+    border-radius:15px;
+    padding:20px;
+    overflow:auto;
+    direction:ltr;
+    text-align:left;
+    color:#ddd;
 }
 
 footer{
-  text-align:center;
-  padding:45px 20px;
-  border-top:1px solid #222;
-  color:#666;
+    text-align:center;
+    padding:40px 20px;
+    border-top:1px solid #171717;
+    color:#777;
 }
 
-@media(max-width:700px){
+.highlight{
+    color:white;
+    font-weight:bold;
+}
 
-  nav{
-    flex-direction:column;
-    gap:12px;
-  }
-
-  nav a{
-    font-size:12px;
-  }
-
-  .input-area{
-    flex-direction:column;
-  }
-
-  #send{
-    padding:14px;
-  }
-
-  #chat{
-    height:390px;
-  }
+.small{
+    color:#777;
+    font-size:14px;
 }
 </style>
 </head>
 
 <body>
 
+<!-- HERO -->
 <header>
-<nav>
 
-<div class="logo">
-CA<span>Y</span>
-</div>
+<div class="hero">
 
-<div>
-<a href="#home">الرئيسية</a>
-<a href="#topics">المجالات</a>
-<a href="#assistant">المساعد</a>
-<a href="#security">الأمان</a>
-<a href="#contact">التواصل</a>
-</div>
+<div class="logo">CAY</div>
 
-</nav>
-</header>
-
-
-<main>
-
-<!-- الرئيسية -->
-
-<section class="hero" id="home">
-
-<div class="badge">
-💻 تقنية × 🔐 أمن سيبراني
-</div>
-
-<h1>
-CA<span>Y</span>
-</h1>
+<h1>الأمان الرقمي • التقنية • تصميم المواقع</h1>
 
 <p>
-منصة تقنية للتعلم والاستكشاف في البرمجة،
-الشبكات، Linux، الأمن السيبراني،
-والتقنيات الحديثة.
+محارب الابتزاز الإلكتروني ومركز تقني لتعلم البرمجة،
+الشبكات، Linux، Kali، Termux، GitHub والذكاء الاصطناعي.
 </p>
 
 <div class="buttons">
 
-<a href="#assistant" class="btn primary">
+<a href="#warrior" class="btn">
+محارب الابتزاز
+</a>
+
+<a href="#website" class="btn">
+💻 تصميم المواقع
+</a>
+
+<a href="#assistant" class="btn">
 🤖 اسأل المساعد
 </a>
 
-<a href="#topics" class="btn secondary">
-🚀 استكشف المجالات
+<a href="#tech" class="btn">
+المجالات التقنية
 </a>
 
 </div>
 
-</section>
+</div>
+
+</header>
 
 
-<!-- المجالات -->
+<!-- BLACKMAIL WARRIOR -->
 
-<section id="topics">
+<section id="warrior">
 
-<h2 class="title">
-مجالات <span>CAY</span>
-</h2>
+<h2 class="title">🛡️ محارب الابتزاز</h2>
+
+<p class="subtitle">
+خطوات آمنة للتعامل مع الابتزاز الإلكتروني
+</p>
 
 <div class="cards">
 
 <div class="card">
-<h3>💻 البرمجة</h3>
+<h3>1️⃣ لا تدفع</h3>
 <p>
-Python، HTML، CSS، JavaScript،
-حل الأخطاء وبناء المشاريع.
+لا ترسل أموالاً أو صوراً أو معلومات إضافية للمبتز.
 </p>
 </div>
 
 <div class="card">
-<h3>🌐 الشبكات</h3>
+<h3>2️⃣ احتفظ بالأدلة</h3>
 <p>
-IP، DNS، HTTP، TCP/IP، SSH
-ومفاهيم الشبكات الأساسية.
+احتفظ بالرسائل، الحساب، الروابط ولقطات الشاشة.
 </p>
 </div>
 
 <div class="card">
-<h3>🐧 Linux</h3>
+<h3>3️⃣ لا تحذف الأدلة</h3>
 <p>
-أوامر Linux، إدارة الملفات،
-الصلاحيات، الطرفية والأنظمة.
+احفظ نسخة من المحادثة قبل حذف أو حظر الحساب.
 </p>
 </div>
 
 <div class="card">
-<h3>🛡️ الأمن السيبراني</h3>
+<h3>4️⃣ أمّن حساباتك</h3>
 <p>
-الحماية، التهديدات، الثغرات،
-الاختبار الأخلاقي والدفاع.
+غيّر كلمات المرور وفعّل المصادقة الثنائية 2FA.
 </p>
 </div>
 
 <div class="card">
-<h3>📱 Android & Termux</h3>
+<h3>5️⃣ أخبر شخصاً موثوقاً</h3>
 <p>
-أوامر الطرفية، بيئة Termux،
-وأدوات التطوير على الهاتف.
+تحدث مع شخص بالغ وموثوق ولا تواجه المشكلة وحدك.
 </p>
 </div>
 
 <div class="card">
-<h3>🐙 GitHub</h3>
+<h3>6️⃣ الخطر المباشر</h3>
 <p>
-المستودعات، Git، GitHub Pages
-ونشر المشاريع.
-</p>
-</div>
-
-<div class="card">
-<h3>🤖 الذكاء الاصطناعي</h3>
-<p>
-مفاهيم AI، استخداماته،
-والربط بين التطبيقات والذكاء الاصطناعي.
-</p>
-</div>
-
-<div class="card">
-<h3>🧪 اختبار الأمان</h3>
-<p>
-تعلم اكتشاف المشاكل الأمنية
-داخل المختبرات والأنظمة المصرح باختبارها.
+إذا كان هناك تهديد حقيقي أو خطر مباشر، تواصل مع الجهات المختصة.
 </p>
 </div>
 
 </div>
-
-</section>
-
-
-<!-- المساعد -->
-
-<section id="assistant">
-
-<h2 class="title">
-🤖 <span>المساعد الذكي</span>
-</h2>
-
-<div class="ai-box">
-
-<div class="ai-header">
-
-<div class="ai-icon">
-🤖
-</div>
-
-<div>
-
-<strong>
-المساعد الذكي
-</strong>
-
-<br>
-
-<small>
-البرمجة • الشبكات • Linux • الأمن السيبراني
-</small>
-
-</div>
-
-</div>
-
-
-<div id="chat">
-
-<div class="message bot">
-أهلاً بك 👋
-
-أنا المساعد الذكي داخل CAY.
-
-اسألني عن البرمجة، الشبكات، Linux،
-Kali، Termux، GitHub، الأمن السيبراني
-أو أي موضوع تقني.
-</div>
-
-</div>
-
-
-<div class="typing" id="typing">
-🤖 المساعد يكتب...
-</div>
-
-
-<div class="quick">
-
-<button onclick="quickQuestion('علمني Python من الصفر')">
-🐍 Python
-</button>
-
-<button onclick="quickQuestion('اشرح لي IP و DNS')">
-🌐 الشبكات
-</button>
-
-<button onclick="quickQuestion('ما هي أوامر Linux المهمة؟')">
-🐧 Linux
-</button>
-
-<button onclick="quickQuestion('ما هو الأمن السيبراني؟')">
-🛡️ الأمن
-</button>
-
-<button onclick="quickQuestion('كيف أستخدم Termux؟')">
-📱 Termux
-</button>
-
-<button onclick="quickQuestion('كيف أرفع موقعي على GitHub Pages؟')">
-🐙 GitHub
-</button>
-
-</div>
-
-
-<div class="input-area">
-
-<input
-id="question"
-type="text"
-placeholder="اسأل عن أي موضوع تقني..."
-autocomplete="off"
->
-
-<button id="send">
-إرسال
-</button>
-
-</div>
-
-</div>
-
 
 <div class="warning">
-⚠️ المساعد مخصص للتعلم والمساعدة التقنية والأمنية المصرح بها.
-لن يقدم إرشادات لاختراق حسابات أو أجهزة الآخرين بدون إذن.
+<strong>⚠️ مهم:</strong>
+لا تحاول اختراق المبتز أو الانتقام منه.
+احفظ الأدلة واتبع الطرق القانونية والآمنة.
 </div>
 
 </section>
 
 
-<!-- الأمان -->
+<!-- WEBSITE DESIGN -->
 
-<section id="security">
+<section id="website">
 
-<h2 class="title">
-🔐 <span>الأمان الرقمي</span>
-</h2>
+<h2 class="title">💻 تصميم المواقع</h2>
+
+<p class="subtitle">
+نصمم لك موقعاً إلكترونياً حسب فكرتك وبسعر يبدأ من 50$
+</p>
+
+<div class="cards">
+
+<div class="card price-card">
+
+<h3>🚀 تصميم موقع احترافي</h3>
+
+<div class="price">
+$50 <span>فقط</span>
+</div>
+
+<p class="feature">
+تصميم حديث ومتجاوب
+</p>
+
+<p class="feature">
+يعمل على الهاتف والكمبيوتر
+</p>
+
+<p class="feature">
+صفحة تعريفية احترافية
+</p>
+
+<p class="feature">
+أقسام حسب طلبك
+</p>
+
+<p class="feature">
+تصميم خاص بالمشروع
+</p>
+
+<p class="feature">
+جاهز للنشر على الإنترنت
+</p>
+
+<a
+href="#contact"
+class="btn">
+أطلب موقعك الآن
+</a>
+
+</div>
+
+
+<div class="card">
+
+<h3>🏢 مناسب لـ</h3>
+
+<p class="feature">الشركات</p>
+<p class="feature">المطاعم والكافيهات</p>
+<p class="feature">المتاجر</p>
+<p class="feature">المشاريع الشخصية</p>
+<p class="feature">المصورين</p>
+<p class="feature">صفحات الخدمات</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>📱 متوافق مع</h3>
+
+<p class="feature">Android</p>
+<p class="feature">iPhone</p>
+<p class="feature">Tablet</p>
+<p class="feature">Laptop</p>
+<p class="feature">Desktop</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PROTECTION -->
+
+<section>
+
+<h2 class="title">🔐 الحماية الرقمية</h2>
+
+<p class="subtitle">
+أساسيات تساعدك على حماية حساباتك وبياناتك
+</p>
 
 <div class="cards">
 
 <div class="card">
 <h3>🔑 كلمات المرور</h3>
 <p>
-استخدم كلمات مرور طويلة وفريدة
-وفعّل المصادقة الثنائية.
+استخدم كلمات مرور قوية ومختلفة لكل حساب.
 </p>
 </div>
 
 <div class="card">
-<h3>🎣 التصيد</h3>
+<h3>🛡️ 2FA</h3>
 <p>
-تعلم كيف تميز الروابط والرسائل
-المشبوهة قبل إدخال معلوماتك.
+فعّل المصادقة الثنائية للحسابات المهمة.
 </p>
 </div>
 
 <div class="card">
-<h3>🧪 المختبرات</h3>
+<h3>📸 الأدلة</h3>
 <p>
-تدرب على الأمن السيبراني داخل
-مختبرات وأجهزة تملكها أو لديك تصريح لاختبارها.
+احتفظ بلقطات الشاشة عند التعرض للابتزاز.
 </p>
 </div>
 
 <div class="card">
-<h3>🛡️ الدفاع</h3>
+<h3>🚫 الروابط المشبوهة</h3>
 <p>
-تعلم اكتشاف المشاكل الأمنية
-وتقوية أجهزتك وحساباتك.
+لا تدخل بياناتك في روابط مجهولة.
 </p>
 </div>
 
@@ -634,564 +489,427 @@ autocomplete="off"
 </section>
 
 
-<!-- التواصل -->
+<!-- TECH -->
+
+<section id="tech">
+
+<h2 class="title">⚡ المجالات التقنية</h2>
+
+<p class="subtitle">
+تعلم واستكشف مجموعة واسعة من المجالات التقنية
+</p>
+
+<div class="cards">
+
+<div class="card">
+<h3>🐍 Python</h3>
+<p>
+البرمجة، المتغيرات، الشروط، الحلقات والدوال.
+</p>
+</div>
+
+<div class="card">
+<h3>🌐 HTML</h3>
+<p>
+إنشاء صفحات ومواقع الويب.
+</p>
+</div>
+
+<div class="card">
+<h3>🌐 الشبكات</h3>
+<p>
+IP، DNS، HTTP، TCP/IP والمفاهيم الأساسية.
+</p>
+</div>
+
+<div class="card">
+<h3>🐧 Linux / Kali</h3>
+<p>
+أوامر Linux وأساسيات الأمن السيبراني والاختبار المصرح به.
+</p>
+</div>
+
+<div class="card">
+<h3>📱 Termux</h3>
+<p>
+بيئة Linux على Android للتعلم والبرمجة.
+</p>
+</div>
+
+<div class="card">
+<h3>🐙 GitHub</h3>
+<p>
+إدارة المشاريع، المستودعات وGitHub Pages.
+</p>
+</div>
+
+<div class="card">
+<h3>🔒 Cybersecurity</h3>
+<p>
+مفاهيم الحماية، الخصوصية، الحسابات والثغرات.
+</p>
+</div>
+
+<div class="card">
+<h3>🤖 AI</h3>
+<p>
+الذكاء الاصطناعي، الأدوات والتطبيقات البرمجية.
+</p>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ASSISTANT -->
+
+<section id="assistant">
+
+<h2 class="title">🤖 المساعد التقني</h2>
+
+<p class="subtitle">
+اسأل CAY عن البرمجة والتقنية والأمان الرقمي
+</p>
+
+<div class="chat">
+
+<div id="chatBox" class="chat-box">
+
+<div class="message bot">
+أهلاً بك في CAY 👋<br>
+اسألني عن Python، HTML، الشبكات، Linux، Kali،
+Termux، GitHub، الأمن السيبراني أو الابتزاز الإلكتروني.
+</div>
+
+</div>
+
+<input
+id="question"
+placeholder="اكتب سؤالك هنا..."
+>
+
+<button
+class="btn"
+onclick="askAI()">
+إرسال
+</button>
+
+</div>
+
+</section>
+
+
+<!-- PYTHON -->
+
+<section>
+
+<h2 class="title">🐍 مثال Python</h2>
+
+<p class="subtitle">
+مثال بسيط للمبتدئين
+</p>
+
+<div class="code">
+
+<pre>
+name = input("شنو اسمك؟ ")
+
+print("أهلاً " + name)
+
+age = int(input("كم عمرك؟ "))
+
+if age >= 18:
+    print("أنت بالغ")
+else:
+    print("أنت تحت 18")
+</pre>
+
+</div>
+
+</section>
+
+
+<!-- CONTACT -->
 
 <section id="contact">
 
-<h2 class="title">
-📞 <span>التواصل</span>
-</h2>
+<h2 class="title">📩 تواصل معنا</h2>
 
-<div class="card" style="text-align:center">
-
-<h3>
-CAY — النجف الأشرف
-</h3>
-
-<p style="margin-top:15px">
-🛡️ منصة تقنية وتوعوية مستقلة
+<p class="subtitle">
+للطلبات والاستفسارات وتصميم المواقع
 </p>
 
-<p style="margin-top:10px">
-💻 البرمجة × الشبكات × الأمن السيبراني
+<div class="cards">
+
+<div class="card">
+
+<h3>💻 تصميم موقع</h3>
+
+<p>
+السعر الأساسي: <span class="highlight">$50</span>
+</p>
+
+<p class="small">
+أرسل فكرتك ونوع الموقع المطلوب.
 </p>
 
 </div>
 
-</section>
+<div class="card">
 
-</main>
+<h3>📧 البريد الإلكتروني</h3>
+
+<p>
+bnmvp107@gmail.com
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>📱 التواصل</h3>
+
+<p>
+07883350604
+</p>
+
+</div>
+
+</div>
+
+<br>
+
+<form
+action="mailto:bnmvp107@gmail.com"
+method="post"
+enctype="text/plain">
+
+<input
+name="name"
+placeholder="اسمك"
+required
+>
+
+<input
+name="email"
+type="email"
+placeholder="البريد الإلكتروني"
+required
+>
+
+<textarea
+name="message"
+placeholder="اكتب طلبك هنا..."
+required></textarea>
+
+<button
+class="btn"
+type="submit">
+إرسال الطلب
+</button>
+
+</form>
+
+</section>
 
 
 <footer>
-© 2026 CAY — Technology & Cybersecurity
+
+<p>
+CAY © 2026
+</p>
+
+<p>
+الأمان الرقمي • التقنية • تصميم المواقع
+</p>
+
+<p class="small">
+CAY منصة مستقلة للتوعية والتعليم التقني وليست جهة حكومية أو شرطية.
+</p>
+
 </footer>
 
 
 <script>
 
-const chat =
-document.getElementById("chat");
-
-const question =
-document.getElementById("question");
-
-const send =
-document.getElementById("send");
-
-const typing =
-document.getElementById("typing");
-
+/* =========================
+   CAY TECHNICAL ASSISTANT
+========================= */
 
 function addMessage(text,type){
 
-const div =
-document.createElement("div");
+    const box=document.getElementById("chatBox");
 
-div.className =
-"message " + type;
+    const message=document.createElement("div");
 
-div.textContent =
-text;
+    message.className="message "+type;
 
-chat.appendChild(div);
+    message.textContent=text;
 
-chat.scrollTop =
-chat.scrollHeight;
+    box.appendChild(message);
+
+    box.scrollTop=box.scrollHeight;
+}
+
+
+function askAI(){
+
+    const input=document.getElementById("question");
+
+    const question=input.value.trim();
+
+    if(!question) return;
+
+    addMessage(question,"user");
+
+    let q=question.toLowerCase();
+
+    let answer="";
+
+    if(
+        q.includes("ابتزاز") ||
+        q.includes("يهددني") ||
+        q.includes("يهدد")
+    ){
+
+        answer=
+        "إذا كنت تتعرض للابتزاز: لا تدفع ولا ترسل معلومات إضافية، احفظ الأدلة، أمّن حساباتك واطلب المساعدة من شخص موثوق. إذا كان هناك خطر مباشر تواصل مع الجهات المختصة.";
+
+    }
+
+    else if(
+        q.includes("اختراق") ||
+        q.includes("تهكير") ||
+        q.includes("hacking")
+    ){
+
+        answer=
+        "أقدر أساعدك في تعلم الأمن السيبراني والاختبار الأخلاقي على أنظمة تملكها أو لديك تصريح لاختبارها. أقدر أشرح لك Linux وKali والشبكات والثغرات بشكل آمن.";
+
+    }
+
+    else if(
+        q.includes("python") ||
+        q.includes("بايثون")
+    ){
+
+        answer=
+        "Python لغة برمجة سهلة وقوية. ابدأ بالمتغيرات، if، loops، functions ثم المشاريع الصغيرة.";
+
+    }
+
+    else if(
+        q.includes("html") ||
+        q.includes("موقع")
+    ){
+
+        answer=
+        "HTML تستخدم لبناء هيكل صفحة الويب. بعدها يمكنك استخدام CSS للتصميم وJavaScript لإضافة التفاعل.";
+
+    }
+
+    else if(
+        q.includes("شبكات") ||
+        q.includes("network") ||
+        q.includes("ip")
+    ){
+
+        answer=
+        "أساسيات الشبكات تشمل IP وDNS وTCP/IP وHTTP والمنافذ. تعلمها خطوة مهمة للأمن السيبراني.";
+
+    }
+
+    else if(
+        q.includes("linux") ||
+        q.includes("kali")
+    ){
+
+        answer=
+        "في Linux ابدأ بأوامر مثل pwd وls وcd وmkdir وcp وmv وrm. وفي Kali استخدم أدوات الاختبار فقط على أنظمة مصرح لك باختبارها.";
+
+    }
+
+    else if(
+        q.includes("termux")
+    ){
+
+        answer=
+        "Termux يوفر بيئة أوامر Linux على Android. يمكنك استخدامه للتعلم والبرمجة وإدارة الملفات وتشغيل بعض أدوات التطوير.";
+
+    }
+
+    else if(
+        q.includes("github")
+    ){
+
+        answer=
+        "GitHub يستخدم لحفظ وإدارة المشاريع البرمجية. ويمكنك نشر المواقع الثابتة باستخدام GitHub Pages.";
+
+    }
+
+    else if(
+        q.includes("ثغرة") ||
+        q.includes("vulnerability")
+    ){
+
+        answer=
+        "الثغرة هي ضعف يمكن أن يؤثر على أمان النظام. تعلم اكتشافها وإصلاحها يكون داخل مختبرات أو أنظمة لديك تصريح باختبارها.";
+
+    }
+
+    else if(
+        q.includes("ai") ||
+        q.includes("ذكاء اصطناعي")
+    ){
+
+        answer=
+        "الذكاء الاصطناعي مجال واسع يشمل تعلم الآلة، معالجة اللغة، الرؤية الحاسوبية والنماذج التوليدية.";
+
+    }
+
+    else if(
+        q.includes("حساب") &&
+        (
+            q.includes("سرق") ||
+            q.includes("مسروق")
+        )
+    ){
+
+        answer=
+        "إذا سُرق حسابك، غيّر كلمة المرور فوراً، فعّل 2FA، سجّل الخروج من الأجهزة الغريبة واستخدم صفحة الاسترداد الرسمية للخدمة.";
+
+    }
+
+    else{
+
+        answer=
+        "أكدر أساعدك بمجالات CAY: البرمجة، HTML، Python، الشبكات، Linux، Kali، Termux، GitHub، الأمن السيبراني، الثغرات، الذكاء الاصطناعي والابتزاز الإلكتروني.";
+
+    }
+
+    setTimeout(function(){
+
+        addMessage(answer,"bot");
+
+    },400);
+
+    input.value="";
 
 }
 
 
-function quickQuestion(text){
+/* ENTER TO SEND */
 
-question.value = text;
+document
+.getElementById("question")
+.addEventListener("keydown",function(e){
 
-sendQuestion();
+    if(e.key==="Enter"){
+        askAI();
+    }
 
-}
-
-
-async function sendQuestion(){
-
-const text =
-question.value.trim();
-
-if(!text) return;
-
-addMessage(text,"user");
-
-question.value="";
-
-typing.style.display="block";
-
-
-try{
-
-await new Promise(
-resolve =>
-setTimeout(resolve,650)
-);
-
-const answer =
-assistantAnswer(text);
-
-addMessage(answer,"bot");
-
-}catch(error){
-
-addMessage(
-"حدث خطأ. حاول مرة أخرى.",
-"bot"
-);
-
-}
-
-typing.style.display="none";
-
-}
-
-
-/* =========================
-   المساعد المحلي
-========================= */
-
-function assistantAnswer(text){
-
-const q =
-text.toLowerCase();
-
-
-/* Python */
-
-if(
-q.includes("python") ||
-q.includes("بايثون")
-){
-
-return `
-🐍 Python
-
-Python لغة برمجة سهلة ومناسبة للمبتدئين.
-
-ابدأ بهذه المفاهيم:
-
-1. المتغيرات
-2. الشروط if
-3. الحلقات for و while
-4. الدوال functions
-5. القوائم lists
-6. الملفات
-7. المكتبات
-
-مثال بسيط:
-
-print("Hello CAY")
-
-إذا تريد، أقدر أبدأ وياك Python من الصفر خطوة بخطوة.
-`;
-
-}
-
-
-/* HTML */
-
-if(
-q.includes("html") ||
-q.includes("اتش تي ام ال")
-){
-
-return `
-🌐 HTML
-
-HTML تستخدم لبناء هيكل صفحات الويب.
-
-أهم العناصر:
-
-<h1>
-<p>
-<a>
-<img>
-<div>
-<button>
-<form>
-
-مثال:
-
-<h1>مرحبا CAY</h1>
-
-وبعدها تستخدم CSS للتصميم
-وJavaScript للتفاعل.
-`;
-
-}
-
-
-/* الشبكات */
-
-if(
-q.includes("ip") ||
-q.includes("dns") ||
-q.includes("شبك") ||
-q.includes("network")
-){
-
-return `
-🌐 الشبكات
-
-IP:
-عنوان يستخدم للتعرف على جهاز
-داخل شبكة.
-
-DNS:
-يحوّل أسماء المواقع مثل example.com
-إلى عناوين IP.
-
-ومن المواضيع المهمة أيضًا:
-
-TCP
-UDP
-HTTP
-HTTPS
-SSH
-DHCP
-NAT
-
-إذا تريد، أشرح لك الشبكات من الصفر.
-`;
-
-}
-
-
-/* Linux */
-
-if(
-q.includes("linux") ||
-q.includes("لينكس") ||
-q.includes("kali") ||
-q.includes("كالي")
-){
-
-return `
-🐧 Linux
-
-أوامر أساسية:
-
-pwd
-ls
-cd
-mkdir
-touch
-cp
-mv
-rm
-cat
-grep
-ip
-ping
-
-مثال:
-
-pwd
-
-يعرض المسار الحالي.
-
-و:
-
-ls
-
-يعرض الملفات الموجودة.
-
-أقدر أشرح لك كل أمر مع مثال عملي.
-`;
-
-}
-
-
-/* Termux */
-
-if(
-q.includes("termux") ||
-q.includes("ترمكس")
-){
-
-return `
-📱 Termux
-
-Termux يوفر لك بيئة طرفية على Android.
-
-يمكنك استخدامه للتعلم في:
-
-• Linux
-• Python
-• Git
-• SSH
-• البرمجة
-• إدارة الملفات
-
-مثال:
-
-pkg update
-
-ثم يمكنك تثبيت Python:
-
-pkg install python
-
-استخدم الأدوات على جهازك أو بيئة لديك تصريح باختبارها.
-`;
-
-}
-
-
-/* GitHub */
-
-if(
-q.includes("github") ||
-q.includes("جيت هب")
-){
-
-return `
-🐙 GitHub
-
-GitHub يستخدم لاستضافة وإدارة المشاريع.
-
-أهم الأشياء:
-
-Repository
-Commit
-Branch
-Clone
-Push
-Pull
-GitHub Pages
-
-وبإمكانك نشر موقع HTML مجاني
-باستخدام GitHub Pages.
-`;
-
-}
-
-
-/* الأمن السيبراني */
-
-if(
-q.includes("امن سيبراني") ||
-q.includes("cyber") ||
-q.includes("security") ||
-q.includes("اختبار اختراق") ||
-q.includes("penetration")
-){
-
-return `
-🛡️ الأمن السيبراني
-
-الأمن السيبراني يهتم بحماية:
-
-• الأجهزة
-• الشبكات
-• الحسابات
-• التطبيقات
-• البيانات
-
-ومن مجالاته:
-
-Web Security
-Network Security
-Digital Forensics
-Threat Analysis
-Penetration Testing
-Incident Response
-
-اختبار الاختراق يجب أن يكون على نظام
-تملكه أو لديك تصريح باختباره.
-`;
-
-}
-
-
-/* برمجة */
-
-if(
-q.includes("برمج") ||
-q.includes("كود") ||
-q.includes("code") ||
-q.includes("javascript") ||
-q.includes("css")
-){
-
-return `
-💻 البرمجة
-
-أقدر أساعدك في:
-
-Python
-HTML
-CSS
-JavaScript
-Git
-GitHub
-
-وأساعدك في فهم الأخطاء الموجودة
-في الكود وتصحيحها وشرح سبب المشكلة.
-`;
-
-}
-
-
-/* SSH */
-
-if(
-q.includes("ssh")
-){
-
-return `
-🔐 SSH
-
-SSH بروتوكول يستخدم للاتصال الآمن
-بجهاز أو خادم عن بعد.
-
-من المفاهيم المهمة:
-
-• SSH server
-• SSH client
-• username
-• password
-• SSH keys
-• ports
-
-استخدم SSH فقط مع الأجهزة والخوادم
-التي تملكها أو لديك تصريح للوصول إليها.
-`;
-
-}
-
-
-/* ثغرات */
-
-if(
-q.includes("ثغرة") ||
-q.includes("vulnerability")
-){
-
-return `
-🧪 الثغرات الأمنية
-
-الثغرة هي مشكلة يمكن أن تؤثر
-على أمان النظام أو التطبيق.
-
-للتعلم بشكل آمن:
-
-• استخدم مختبرات تعليمية.
-• اختبر تطبيقاتك أنت.
-• لا تختبر مواقع الآخرين بدون تصريح.
-• تعلم كيفية اكتشاف المشكلة ثم إصلاحها.
-
-أقدر أشرح لك أنواع الثغرات
-بأمثلة تعليمية آمنة.
-`;
-
-}
-
-
-/* AI */
-
-if(
-q.includes("ai") ||
-q.includes("ذكاء اصطناعي") ||
-q.includes("ذكاء")
-){
-
-return `
-🤖 الذكاء الاصطناعي
-
-يمكن استخدام AI في:
-
-• البرمجة
-• تحليل البيانات
-• المساعدة التعليمية
-• الأتمتة
-• تحليل النصوص
-• بناء المساعدات الذكية
-
-ويمكننا أيضًا شرح طريقة ربط موقع
-بمساعد AI باستخدام Backend آمن.
-`;
-
-}
-
-
-/* اختراق */
-
-if(
-q.includes("تهكير") ||
-q.includes("هكر") ||
-q.includes("hack") ||
-q.includes("اختراق")
-){
-
-return `
-🔐 إذا كنت تتعلم الاختراق الأخلاقي:
-
-أقدر أساعدك في التعلم على:
-
-• Linux
-• الشبكات
-• أساسيات Web Security
-• تحليل الثغرات
-• المختبرات التعليمية
-• CTF
-• الدفاع واكتشاف الهجمات
-
-أما اختراق حساب أو جهاز شخص آخر
-بدون إذن، فلا أستطيع إعطاء خطوات لذلك.
-
-إذا عندك مختبر خاص بك، اذكر نوعه
-وأساعدك بخطة تدريب آمنة.
-`;
-
-}
-
-
-/* جواب عام */
-
-return `
-🤖 المساعد الذكي في CAY
-
-سؤالك مفتوح، وأقدر أساعدك في مجالات مثل:
-
-💻 البرمجة
-🌐 الشبكات
-🐧 Linux
-📱 Termux
-🛡️ الأمن السيبراني
-🧪 اختبار الأمان
-🐙 GitHub
-🤖 الذكاء الاصطناعي
-🔐 حماية الحسابات
-
-اكتب سؤالك بالتفصيل حتى أعطيك جوابًا أدق.
-`;
-
-}
-
-
-/* Enter */
-
-send.addEventListener(
-"click",
-sendQuestion
-);
-
-
-question.addEventListener(
-"keydown",
-function(event){
-
-if(event.key==="Enter"){
-sendQuestion();
-}
-
-}
-);
+});
 
 </script>
 
