@@ -1,1279 +1,1199 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
-
-  <meta charset="UTF-8">
-
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
-
-  <title>CAY | الأمان الرقمي</title>
-
-  <meta name="description"
-        content="CAY منصة توعوية عراقية للأمان الرقمي ومكافحة الابتزاز الإلكتروني، مع مساعد ذكي للإرشاد والتوعية.">
-
-  <meta name="theme-color" content="#050505">
-
-  <style>
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-    }
-
-    body {
-      background:
-        radial-gradient(
-          circle at top,
-          #151515 0%,
-          #050505 45%,
-          #000 100%
-        );
-
-      color: white;
-      min-height: 100vh;
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-
-      background: rgba(0,0,0,.88);
-
-      backdrop-filter: blur(12px);
-
-      border-bottom: 1px solid #222;
-    }
-
-    nav {
-      max-width: 1100px;
-      margin: auto;
-
-      padding: 15px 20px;
-
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-size: 29px;
-      font-weight: 900;
-      letter-spacing: 3px;
-    }
-
-    .logo span {
-      color: #8b5cf6;
-    }
-
-    nav a {
-      color: #ddd;
-      text-decoration: none;
-
-      margin: 0 8px;
-
-      font-size: 14px;
-
-      transition: .2s;
-    }
-
-    nav a:hover {
-      color: #a78bfa;
-    }
-
-    .hero {
-      max-width: 1100px;
-      margin: auto;
-
-      padding: 100px 20px 70px;
-
-      text-align: center;
-    }
-
-    .badge {
-      display: inline-block;
-
-      padding: 8px 15px;
-
-      border: 1px solid #333;
-      border-radius: 30px;
-
-      color: #c4b5fd;
-
-      background: #111;
-
-      margin-bottom: 20px;
-    }
-
-    h1 {
-      font-size: clamp(50px, 10vw, 95px);
-
-      font-weight: 900;
-
-      letter-spacing: 5px;
-
-      margin-bottom: 20px;
-    }
-
-    h1 span {
-      color: #8b5cf6;
-    }
-
-    .hero p {
-      color: #aaa;
-
-      max-width: 720px;
-
-      margin: auto;
-
-      line-height: 1.9;
-
-      font-size: 17px;
-    }
-
-    .buttons {
-      margin-top: 30px;
-    }
-
-    .btn {
-      display: inline-block;
-
-      padding: 14px 22px;
-
-      border-radius: 12px;
-
-      text-decoration: none;
-
-      margin: 5px;
-
-      font-weight: bold;
-
-      transition: .2s;
-    }
-
-    .primary {
-      background: #7c3aed;
-      color: white;
-    }
-
-    .primary:hover {
-      background: #6d28d9;
-      transform: translateY(-2px);
-    }
-
-    .secondary {
-      border: 1px solid #333;
-
-      color: white;
-
-      background: #111;
-    }
-
-    section {
-      max-width: 1100px;
-
-      margin: auto;
-
-      padding: 70px 20px;
-    }
-
-    .section-title {
-      text-align: center;
-
-      font-size: 35px;
-
-      margin-bottom: 35px;
-    }
-
-    .section-title span {
-      color: #8b5cf6;
-    }
-
-    .cards {
-      display: grid;
-
-      grid-template-columns:
-      repeat(auto-fit, minmax(230px, 1fr));
-
-      gap: 18px;
-    }
-
-    .card {
-      background: rgba(15,15,15,.9);
-
-      border: 1px solid #252525;
-
-      padding: 25px;
-
-      border-radius: 18px;
-
-      transition: .2s;
-    }
-
-    .card:hover {
-      transform: translateY(-3px);
-
-      border-color: #452080;
-    }
-
-    .card h3 {
-      margin-bottom: 12px;
-    }
-
-    .card p {
-      color: #aaa;
-
-      line-height: 1.8;
-    }
-
-
-    /* =========================
-       المساعد الذكي
-    ========================= */
-
-    .ai-box {
-      max-width: 850px;
-
-      margin: auto;
-
-      background: #090909;
-
-      border: 1px solid #292929;
-
-      border-radius: 22px;
-
-      overflow: hidden;
-
-      box-shadow:
-        0 20px 70px rgba(0,0,0,.4);
-    }
-
-    .ai-header {
-      padding: 20px;
-
-      background:
-        linear-gradient(
-          90deg,
-          #111,
-          #181026
-        );
-
-      border-bottom: 1px solid #292929;
-
-      display: flex;
-
-      align-items: center;
-
-      gap: 12px;
-    }
-
-    .ai-icon {
-      width: 45px;
-      height: 45px;
-
-      border-radius: 50%;
-
-      display: flex;
-
-      align-items: center;
-      justify-content: center;
-
-      background: #7c3aed;
-
-      font-size: 22px;
-    }
-
-    .ai-header small {
-      color: #999;
-    }
-
-    #chat {
-      height: 430px;
-
-      overflow-y: auto;
-
-      padding: 20px;
-    }
-
-    .message {
-      max-width: 85%;
-
-      padding: 13px 16px;
-
-      margin-bottom: 13px;
-
-      border-radius: 15px;
-
-      line-height: 1.7;
-
-      white-space: pre-wrap;
-    }
-
-    .bot {
-      background: #171717;
-
-      border: 1px solid #292929;
-
-      margin-left: auto;
-    }
-
-    .user {
-      background: #6d28d9;
-
-      margin-right: auto;
-    }
-
-    .typing {
-      color: #888;
-
-      font-size: 13px;
-
-      padding: 0 20px 10px;
-
-      display: none;
-    }
-
-    .input-area {
-      display: flex;
-
-      gap: 8px;
-
-      padding: 15px;
-
-      border-top: 1px solid #292929;
-
-      background: #0d0d0d;
-    }
-
-    #question {
-      flex: 1;
-
-      background: #161616;
-
-      border: 1px solid #303030;
-
-      color: white;
-
-      padding: 14px;
-
-      border-radius: 12px;
-
-      outline: none;
-    }
-
-    #question:focus {
-      border-color: #7c3aed;
-    }
-
-    #send {
-      border: 0;
-
-      background: #7c3aed;
-
-      color: white;
-
-      padding: 0 20px;
-
-      border-radius: 12px;
-
-      cursor: pointer;
-
-      font-weight: bold;
-    }
-
-    .quick {
-      display: flex;
-
-      gap: 8px;
-
-      flex-wrap: wrap;
-
-      padding: 0 20px 18px;
-    }
-
-    .quick button {
-      background: #151515;
-
-      color: #ccc;
-
-      border: 1px solid #303030;
-
-      border-radius: 20px;
-
-      padding: 8px 12px;
-
-      cursor: pointer;
-    }
-
-    .quick button:hover {
-      border-color: #7c3aed;
-
-      color: white;
-    }
-
-    .warning {
-      margin-top: 20px;
-
-      padding: 15px;
-
-      background: #120d05;
-
-      border: 1px solid #443014;
-
-      color: #d6c3a1;
-
-      border-radius: 12px;
-
-      line-height: 1.7;
-    }
-
-    footer {
-      text-align: center;
-
-      padding: 40px 20px;
-
-      border-top: 1px solid #222;
-
-      color: #777;
-    }
-
-
-    /* =========================
-       الهاتف
-    ========================= */
-
-    @media(max-width:700px) {
-
-      nav {
-        flex-direction: column;
-
-        gap: 12px;
-      }
-
-      nav a {
-        font-size: 12px;
-      }
-
-      .input-area {
-        flex-direction: column;
-      }
-
-      #send {
-        padding: 14px;
-      }
-
-      #chat {
-        height: 380px;
-      }
-
-    }
-
-  </style>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CAY | التقنية والأمن السيبراني</title>
+
+<meta name="description"
+content="CAY منصة تقنية للتعلم في البرمجة والشبكات والأمن السيبراني وLinux والتقنيات الحديثة.">
+
+<meta name="theme-color" content="#050505">
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial,sans-serif;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:
+  radial-gradient(circle at top,#17121f 0%,#060606 45%,#000 100%);
+  color:#fff;
+  min-height:100vh;
+}
+
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(0,0,0,.88);
+  backdrop-filter:blur(15px);
+  border-bottom:1px solid #222;
+}
+
+nav{
+  max-width:1150px;
+  margin:auto;
+  padding:15px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  font-size:30px;
+  font-weight:900;
+  letter-spacing:4px;
+}
+
+.logo span{
+  color:#8b5cf6;
+}
+
+nav a{
+  color:#ccc;
+  text-decoration:none;
+  margin:0 7px;
+  font-size:14px;
+}
+
+nav a:hover{
+  color:#a78bfa;
+}
+
+.hero{
+  max-width:1150px;
+  margin:auto;
+  padding:100px 20px 80px;
+  text-align:center;
+}
+
+.badge{
+  display:inline-block;
+  padding:8px 16px;
+  border:1px solid #333;
+  border-radius:30px;
+  background:#111;
+  color:#c4b5fd;
+  margin-bottom:22px;
+}
+
+h1{
+  font-size:clamp(55px,11vw,110px);
+  letter-spacing:8px;
+  font-weight:900;
+}
+
+h1 span{
+  color:#8b5cf6;
+}
+
+.hero p{
+  max-width:750px;
+  margin:20px auto;
+  color:#999;
+  line-height:2;
+  font-size:17px;
+}
+
+.buttons{
+  margin-top:30px;
+}
+
+.btn{
+  display:inline-block;
+  padding:14px 23px;
+  margin:5px;
+  border-radius:13px;
+  text-decoration:none;
+  font-weight:bold;
+  transition:.2s;
+}
+
+.primary{
+  background:#7c3aed;
+  color:#fff;
+}
+
+.primary:hover{
+  background:#6d28d9;
+  transform:translateY(-2px);
+}
+
+.secondary{
+  background:#111;
+  color:#fff;
+  border:1px solid #333;
+}
+
+section{
+  max-width:1150px;
+  margin:auto;
+  padding:70px 20px;
+}
+
+.title{
+  text-align:center;
+  font-size:36px;
+  margin-bottom:35px;
+}
+
+.title span{
+  color:#8b5cf6;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:18px;
+}
+
+.card{
+  background:#0d0d0d;
+  border:1px solid #252525;
+  border-radius:18px;
+  padding:25px;
+  transition:.2s;
+}
+
+.card:hover{
+  transform:translateY(-4px);
+  border-color:#54299a;
+}
+
+.card h3{
+  margin-bottom:12px;
+}
+
+.card p{
+  color:#999;
+  line-height:1.8;
+}
+
+/* AI */
+
+.ai-box{
+  max-width:900px;
+  margin:auto;
+  background:#090909;
+  border:1px solid #292929;
+  border-radius:22px;
+  overflow:hidden;
+  box-shadow:0 20px 70px rgba(0,0,0,.45);
+}
+
+.ai-header{
+  display:flex;
+  align-items:center;
+  gap:13px;
+  padding:20px;
+  background:linear-gradient(90deg,#101010,#191026);
+  border-bottom:1px solid #292929;
+}
+
+.ai-icon{
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  background:#7c3aed;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:23px;
+}
+
+.ai-header small{
+  color:#888;
+}
+
+#chat{
+  height:460px;
+  overflow-y:auto;
+  padding:20px;
+}
+
+.message{
+  max-width:88%;
+  padding:14px 17px;
+  border-radius:16px;
+  margin-bottom:14px;
+  line-height:1.8;
+  white-space:pre-wrap;
+}
+
+.bot{
+  background:#171717;
+  border:1px solid #292929;
+  margin-left:auto;
+}
+
+.user{
+  background:#6d28d9;
+  margin-right:auto;
+}
+
+.typing{
+  display:none;
+  color:#888;
+  padding:0 20px 12px;
+  font-size:13px;
+}
+
+.quick{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  padding:0 20px 18px;
+}
+
+.quick button{
+  background:#151515;
+  border:1px solid #303030;
+  color:#ccc;
+  border-radius:20px;
+  padding:9px 13px;
+  cursor:pointer;
+}
+
+.quick button:hover{
+  border-color:#7c3aed;
+  color:#fff;
+}
+
+.input-area{
+  display:flex;
+  gap:8px;
+  padding:15px;
+  background:#0c0c0c;
+  border-top:1px solid #292929;
+}
+
+#question{
+  flex:1;
+  background:#161616;
+  border:1px solid #303030;
+  color:#fff;
+  padding:15px;
+  border-radius:12px;
+  outline:none;
+}
+
+#question:focus{
+  border-color:#7c3aed;
+}
+
+#send{
+  background:#7c3aed;
+  color:white;
+  border:0;
+  border-radius:12px;
+  padding:0 22px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.warning{
+  max-width:900px;
+  margin:20px auto 0;
+  padding:16px;
+  background:#110d05;
+  border:1px solid #3f2d13;
+  border-radius:13px;
+  color:#cdbb9c;
+  line-height:1.8;
+}
+
+footer{
+  text-align:center;
+  padding:45px 20px;
+  border-top:1px solid #222;
+  color:#666;
+}
+
+@media(max-width:700px){
+
+  nav{
+    flex-direction:column;
+    gap:12px;
+  }
+
+  nav a{
+    font-size:12px;
+  }
+
+  .input-area{
+    flex-direction:column;
+  }
+
+  #send{
+    padding:14px;
+  }
+
+  #chat{
+    height:390px;
+  }
+}
+</style>
 </head>
-
 
 <body>
 
-
-<!-- =========================
-     NAVBAR
-========================= -->
-
 <header>
+<nav>
 
-  <nav>
+<div class="logo">
+CA<span>Y</span>
+</div>
 
-    <div class="logo">
-      CA<span>Y</span>
-    </div>
+<div>
+<a href="#home">الرئيسية</a>
+<a href="#topics">المجالات</a>
+<a href="#assistant">المساعد</a>
+<a href="#security">الأمان</a>
+<a href="#contact">التواصل</a>
+</div>
 
-    <div>
-
-      <a href="#home">
-        الرئيسية
-      </a>
-
-      <a href="#about">
-        عن CAY
-      </a>
-
-      <a href="#assistant">
-        المساعد
-      </a>
-
-      <a href="#security">
-        الحماية
-      </a>
-
-      <a href="#contact">
-        التواصل
-      </a>
-
-    </div>
-
-  </nav>
-
+</nav>
 </header>
-
 
 
 <main>
 
-
-<!-- =========================
-     HERO
-========================= -->
+<!-- الرئيسية -->
 
 <section class="hero" id="home">
 
-  <div class="badge">
-    🛡️ مبادرة توعوية — النجف الأشرف
-  </div>
+<div class="badge">
+💻 تقنية × 🔐 أمن سيبراني
+</div>
 
-  <h1>
-    CA<span>Y</span>
-  </h1>
+<h1>
+CA<span>Y</span>
+</h1>
 
-  <p>
+<p>
+منصة تقنية للتعلم والاستكشاف في البرمجة،
+الشبكات، Linux، الأمن السيبراني،
+والتقنيات الحديثة.
+</p>
 
-    منصة توعوية عراقية تهدف إلى نشر الوعي
-    حول الأمان الرقمي ومواجهة الابتزاز الإلكتروني
-    وحماية الحسابات والخصوصية.
+<div class="buttons">
 
-  </p>
+<a href="#assistant" class="btn primary">
+🤖 اسأل المساعد
+</a>
 
-  <div class="buttons">
+<a href="#topics" class="btn secondary">
+🚀 استكشف المجالات
+</a>
 
-    <a
-      class="btn primary"
-      href="#assistant"
-    >
-      🤖 اسأل المساعد
-    </a>
-
-    <a
-      class="btn secondary"
-      href="#security"
-    >
-      🔐 مركز الحماية
-    </a>
-
-  </div>
+</div>
 
 </section>
 
 
+<!-- المجالات -->
 
-<!-- =========================
-     ABOUT
-========================= -->
+<section id="topics">
 
-<section id="about">
+<h2 class="title">
+مجالات <span>CAY</span>
+</h2>
 
-  <h2 class="section-title">
+<div class="cards">
 
-    عن <span>CAY</span>
+<div class="card">
+<h3>💻 البرمجة</h3>
+<p>
+Python، HTML، CSS، JavaScript،
+حل الأخطاء وبناء المشاريع.
+</p>
+</div>
 
-  </h2>
+<div class="card">
+<h3>🌐 الشبكات</h3>
+<p>
+IP، DNS، HTTP، TCP/IP، SSH
+ومفاهيم الشبكات الأساسية.
+</p>
+</div>
 
+<div class="card">
+<h3>🐧 Linux</h3>
+<p>
+أوامر Linux، إدارة الملفات،
+الصلاحيات، الطرفية والأنظمة.
+</p>
+</div>
 
-  <div class="cards">
+<div class="card">
+<h3>🛡️ الأمن السيبراني</h3>
+<p>
+الحماية، التهديدات، الثغرات،
+الاختبار الأخلاقي والدفاع.
+</p>
+</div>
 
+<div class="card">
+<h3>📱 Android & Termux</h3>
+<p>
+أوامر الطرفية، بيئة Termux،
+وأدوات التطوير على الهاتف.
+</p>
+</div>
 
-    <div class="card">
+<div class="card">
+<h3>🐙 GitHub</h3>
+<p>
+المستودعات، Git، GitHub Pages
+ونشر المشاريع.
+</p>
+</div>
 
-      <h3>
-        🛡️ التوعية
-      </h3>
+<div class="card">
+<h3>🤖 الذكاء الاصطناعي</h3>
+<p>
+مفاهيم AI، استخداماته،
+والربط بين التطبيقات والذكاء الاصطناعي.
+</p>
+</div>
 
-      <p>
+<div class="card">
+<h3>🧪 اختبار الأمان</h3>
+<p>
+تعلم اكتشاف المشاكل الأمنية
+داخل المختبرات والأنظمة المصرح باختبارها.
+</p>
+</div>
 
-        نشر المعرفة حول الابتزاز الإلكتروني
-        وسرقة الحسابات والروابط المشبوهة
-        وطرق حماية الخصوصية.
-
-      </p>
-
-    </div>
-
-
-
-    <div class="card">
-
-      <h3>
-        🤖 مساعد ذكي
-      </h3>
-
-      <p>
-
-        مساعد داخل الموقع يساعد المستخدم
-        على فهم المشاكل المتعلقة بالأمان الرقمي
-        والحصول على إرشادات أولية.
-
-      </p>
-
-    </div>
-
-
-
-    <div class="card">
-
-      <h3>
-        🔐 الحماية
-      </h3>
-
-      <p>
-
-        نصائح عملية لحماية الحسابات
-        وكلمات المرور والأجهزة
-        والمعلومات الشخصية.
-
-      </p>
-
-    </div>
-
-
-  </div>
+</div>
 
 </section>
 
 
-
-<!-- =========================
-     ASSISTANT
-========================= -->
+<!-- المساعد -->
 
 <section id="assistant">
 
-  <h2 class="section-title">
+<h2 class="title">
+🤖 <span>المساعد الذكي</span>
+</h2>
 
-    🤖 <span>المساعد الذكي</span>
+<div class="ai-box">
 
-  </h2>
+<div class="ai-header">
 
+<div class="ai-icon">
+🤖
+</div>
 
-  <div class="ai-box">
+<div>
 
+<strong>
+المساعد الذكي
+</strong>
 
-    <div class="ai-header">
+<br>
 
-      <div class="ai-icon">
-        🤖
-      </div>
+<small>
+البرمجة • الشبكات • Linux • الأمن السيبراني
+</small>
 
-      <div>
+</div>
 
-        <strong>
-          المساعد الذكي
-        </strong>
-
-        <br>
-
-        <small>
-          مساعد الأمان الرقمي
-        </small>
-
-      </div>
-
-    </div>
+</div>
 
 
+<div id="chat">
 
-    <div id="chat">
+<div class="message bot">
+أهلاً بك 👋
 
+أنا المساعد الذكي داخل CAY.
 
-      <div class="message bot">
+اسألني عن البرمجة، الشبكات، Linux،
+Kali، Termux، GitHub، الأمن السيبراني
+أو أي موضوع تقني.
+</div>
 
-        أهلاً بك 👋
-
-        أنا المساعد الذكي في CAY.
-
-        اسألني عن الابتزاز الإلكتروني،
-        حماية الحسابات،
-        الروابط المشبوهة،
-        أو الأمان الرقمي.
-
-      </div>
+</div>
 
 
-    </div>
+<div class="typing" id="typing">
+🤖 المساعد يكتب...
+</div>
 
 
+<div class="quick">
 
-    <div
-      class="typing"
-      id="typing"
-    >
+<button onclick="quickQuestion('علمني Python من الصفر')">
+🐍 Python
+</button>
 
-      🤖 المساعد يكتب...
+<button onclick="quickQuestion('اشرح لي IP و DNS')">
+🌐 الشبكات
+</button>
 
-    </div>
+<button onclick="quickQuestion('ما هي أوامر Linux المهمة؟')">
+🐧 Linux
+</button>
 
+<button onclick="quickQuestion('ما هو الأمن السيبراني؟')">
+🛡️ الأمن
+</button>
 
+<button onclick="quickQuestion('كيف أستخدم Termux؟')">
+📱 Termux
+</button>
 
-    <div class="quick">
+<button onclick="quickQuestion('كيف أرفع موقعي على GitHub Pages؟')">
+🐙 GitHub
+</button>
 
-
-      <button
-        onclick="quickQuestion('ماذا أفعل إذا تعرضت للابتزاز؟')"
-      >
-        🚨 تعرضت للابتزاز
-      </button>
-
-
-      <button
-        onclick="quickQuestion('كيف أحمي حسابي؟')"
-      >
-        🔐 حماية الحساب
-      </button>
-
-
-      <button
-        onclick="quickQuestion('كيف أعرف الرابط المشبوه؟')"
-      >
-        🔗 رابط مشبوه
-      </button>
+</div>
 
 
-      <button
-        onclick="quickQuestion('حسابي انسرق ماذا أفعل؟')"
-      >
-        🚨 حسابي انسرق
-      </button>
+<div class="input-area">
+
+<input
+id="question"
+type="text"
+placeholder="اسأل عن أي موضوع تقني..."
+autocomplete="off"
+>
+
+<button id="send">
+إرسال
+</button>
+
+</div>
+
+</div>
 
 
-    </div>
-
-
-
-    <div class="input-area">
-
-
-      <input
-        id="question"
-        type="text"
-        placeholder="اكتب سؤالك هنا..."
-        autocomplete="off"
-      >
-
-
-      <button id="send">
-        إرسال
-      </button>
-
-
-    </div>
-
-
-  </div>
-
-
-
-  <div class="warning">
-
-    ⚠️ هذا المساعد للتوعية والإرشاد العام،
-    ولا يحل محل الجهات المختصة أو الشرطة
-    أو الدعم الرسمي للمنصة المستخدمة.
-
-  </div>
+<div class="warning">
+⚠️ المساعد مخصص للتعلم والمساعدة التقنية والأمنية المصرح بها.
+لن يقدم إرشادات لاختراق حسابات أو أجهزة الآخرين بدون إذن.
+</div>
 
 </section>
 
 
-
-<!-- =========================
-     SECURITY
-========================= -->
+<!-- الأمان -->
 
 <section id="security">
 
-  <h2 class="section-title">
+<h2 class="title">
+🔐 <span>الأمان الرقمي</span>
+</h2>
 
-    🔐 مركز <span>الحماية</span>
+<div class="cards">
 
-  </h2>
+<div class="card">
+<h3>🔑 كلمات المرور</h3>
+<p>
+استخدم كلمات مرور طويلة وفريدة
+وفعّل المصادقة الثنائية.
+</p>
+</div>
 
+<div class="card">
+<h3>🎣 التصيد</h3>
+<p>
+تعلم كيف تميز الروابط والرسائل
+المشبوهة قبل إدخال معلوماتك.
+</p>
+</div>
 
-  <div class="cards">
+<div class="card">
+<h3>🧪 المختبرات</h3>
+<p>
+تدرب على الأمن السيبراني داخل
+مختبرات وأجهزة تملكها أو لديك تصريح لاختبارها.
+</p>
+</div>
 
+<div class="card">
+<h3>🛡️ الدفاع</h3>
+<p>
+تعلم اكتشاف المشاكل الأمنية
+وتقوية أجهزتك وحساباتك.
+</p>
+</div>
 
-    <div class="card">
-
-      <h3>
-        🔑 كلمة مرور قوية
-      </h3>
-
-      <p>
-
-        استخدم كلمة مرور طويلة وفريدة
-        لكل حساب، ولا تستخدم نفس كلمة المرور
-        في أكثر من خدمة.
-
-      </p>
-
-    </div>
-
-
-
-    <div class="card">
-
-      <h3>
-        📱 التحقق بخطوتين
-      </h3>
-
-      <p>
-
-        فعّل المصادقة الثنائية للحسابات المهمة
-        حتى لا تكون كلمة المرور وحدها كافية
-        للدخول إلى الحساب.
-
-      </p>
-
-    </div>
-
-
-
-    <div class="card">
-
-      <h3>
-        🔗 الروابط
-      </h3>
-
-      <p>
-
-        لا تدخل معلوماتك الحساسة في رابط
-        وصلك من شخص مجهول أو صفحة غير موثوقة.
-
-      </p>
-
-    </div>
-
-
-
-    <div class="card">
-
-      <h3>
-        📸 الابتزاز
-      </h3>
-
-      <p>
-
-        لا ترسل أموالًا للمبتز،
-        واحتفظ بالأدلة واطلب المساعدة
-        من شخص موثوق والجهات المختصة.
-
-      </p>
-
-    </div>
-
-
-  </div>
+</div>
 
 </section>
 
 
-
-<!-- =========================
-     CONTACT
-========================= -->
+<!-- التواصل -->
 
 <section id="contact">
 
-  <h2 class="section-title">
+<h2 class="title">
+📞 <span>التواصل</span>
+</h2>
 
-    📞 <span>التواصل</span>
+<div class="card" style="text-align:center">
 
-  </h2>
+<h3>
+CAY — النجف الأشرف
+</h3>
 
+<p style="margin-top:15px">
+🛡️ منصة تقنية وتوعوية مستقلة
+</p>
 
-  <div
-    class="card"
-    style="text-align:center"
-  >
+<p style="margin-top:10px">
+💻 البرمجة × الشبكات × الأمن السيبراني
+</p>
 
-    <h3>
-      CAY — النجف الأشرف
-    </h3>
-
-
-    <p style="margin-top:15px">
-
-      🛡️ منصة توعوية مستقلة للأمان الرقمي
-
-    </p>
-
-
-    <p style="margin-top:10px">
-
-      🇮🇶 العراق × 🇮🇷 إيران
-
-    </p>
-
-
-  </div>
+</div>
 
 </section>
-
 
 </main>
 
 
-
-<!-- =========================
-     FOOTER
-========================= -->
-
 <footer>
-
-  © 2026 CAY — Digital Safety Awareness
-
+© 2026 CAY — Technology & Cybersecurity
 </footer>
-
 
 
 <script>
 
-
-/* =========================
-   عناصر المساعد
-========================= */
-
 const chat =
-  document.getElementById("chat");
+document.getElementById("chat");
 
 const question =
-  document.getElementById("question");
+document.getElementById("question");
 
 const send =
-  document.getElementById("send");
+document.getElementById("send");
 
 const typing =
-  document.getElementById("typing");
+document.getElementById("typing");
 
 
+function addMessage(text,type){
 
-/* =========================
-   إضافة رسالة
-========================= */
+const div =
+document.createElement("div");
 
-function addMessage(text, type) {
+div.className =
+"message " + type;
 
-  const div =
-    document.createElement("div");
+div.textContent =
+text;
 
-  div.className =
-    "message " + type;
+chat.appendChild(div);
 
-  /*
-    textContent مهم جدًا
-    لأنه يمنع تنفيذ HTML أو JavaScript
-    يكتبه المستخدم.
-  */
-
-  div.textContent = text;
-
-  chat.appendChild(div);
-
-  chat.scrollTop =
-    chat.scrollHeight;
+chat.scrollTop =
+chat.scrollHeight;
 
 }
 
 
+function quickQuestion(text){
 
-/* =========================
-   الأسئلة السريعة
-========================= */
+question.value = text;
 
-function quickQuestion(text) {
-
-  question.value = text;
-
-  sendQuestion();
+sendQuestion();
 
 }
 
 
+async function sendQuestion(){
 
-/* =========================
-   إرسال السؤال
-========================= */
+const text =
+question.value.trim();
 
-async function sendQuestion() {
+if(!text) return;
 
-  const text =
-    question.value.trim();
+addMessage(text,"user");
 
-  if (!text) return;
+question.value="";
 
-
-  addMessage(
-    text,
-    "user"
-  );
+typing.style.display="block";
 
 
-  question.value = "";
+try{
 
+await new Promise(
+resolve =>
+setTimeout(resolve,650)
+);
 
-  typing.style.display =
-    "block";
+const answer =
+assistantAnswer(text);
 
+addMessage(answer,"bot");
 
-  try {
+}catch(error){
 
-    /*
-      لاحقًا نربط هنا Backend حقيقي.
+addMessage(
+"حدث خطأ. حاول مرة أخرى.",
+"bot"
+);
 
-      مثال:
+}
 
-      const response = await fetch("/api/chat", {
-        method: "POST",
-
-        headers: {
-          "Content-Type": "application/json"
-        },
-
-        body: JSON.stringify({
-          message: text
-        })
-      });
-
-      const data =
-        await response.json();
-
-      addMessage(
-        data.reply,
-        "bot"
-      );
-    */
-
-
-    await new Promise(
-      resolve =>
-        setTimeout(resolve, 700)
-    );
-
-
-    const reply =
-      demoAssistant(text);
-
-
-    addMessage(
-      reply,
-      "bot"
-    );
-
-
-  } catch (error) {
-
-    addMessage(
-      "حدث خطأ في الاتصال بالمساعد. حاول مرة أخرى.",
-      "bot"
-    );
-
-  }
-
-
-  typing.style.display =
-    "none";
+typing.style.display="none";
 
 }
 
 
-
 /* =========================
-   المساعد التجريبي
+   المساعد المحلي
 ========================= */
 
-function demoAssistant(text) {
+function assistantAnswer(text){
 
-  const q =
-    text.toLowerCase();
-
-
-  /* الابتزاز */
-
-  if (
-    q.includes("ابتزاز") ||
-    q.includes("يهدد") ||
-    q.includes("تهديد")
-  ) {
-
-    return `
-إذا كنت تتعرض للابتزاز:
-
-1. لا ترسل أموالًا للمبتز.
-2. لا ترسل صورًا أو معلومات إضافية.
-3. احتفظ بالرسائل والأدلة.
-4. لا تحذف المحادثة قبل حفظ الأدلة.
-5. أخبر شخصًا بالغًا وموثوقًا.
-6. تواصل مع الجهات المختصة عند الحاجة.
-
-إذا كان هناك خطر مباشر عليك،
-اطلب المساعدة فورًا من شخص موثوق
-والجهات المختصة.
-`;
-
-  }
+const q =
+text.toLowerCase();
 
 
+/* Python */
 
-  /* الحساب المسروق */
+if(
+q.includes("python") ||
+q.includes("بايثون")
+){
 
-  if (
-    q.includes("حسابي") &&
-    (
-      q.includes("انسرق") ||
-      q.includes("تهكر") ||
-      q.includes("اخترق")
-    )
-  ) {
+return `
+🐍 Python
 
-    return `
-إذا تم اختراق حسابك:
+Python لغة برمجة سهلة ومناسبة للمبتدئين.
 
-• غيّر كلمة المرور فورًا من جهاز موثوق.
-• سجّل الخروج من الأجهزة والجلسات الغريبة.
-• فعّل التحقق بخطوتين.
-• راجع البريد ورقم الهاتف المرتبطين بالحساب.
-• استخدم صفحة الاسترداد الرسمية للخدمة.
-• لا تعطي رمز التحقق لأي شخص.
-`;
+ابدأ بهذه المفاهيم:
 
-  }
+1. المتغيرات
+2. الشروط if
+3. الحلقات for و while
+4. الدوال functions
+5. القوائم lists
+6. الملفات
+7. المكتبات
 
+مثال بسيط:
 
+print("Hello CAY")
 
-  /* حماية الحساب */
-
-  if (
-    q.includes("حماية") ||
-    q.includes("كلمة مرور") ||
-    q.includes("باسورد")
-  ) {
-
-    return `
-لحماية حسابك:
-
-🔐 استخدم كلمة مرور طويلة وفريدة.
-📱 فعّل المصادقة الثنائية.
-🚫 لا تشارك رمز التحقق.
-📧 أمّن بريدك الإلكتروني.
-🔗 لا تدخل بياناتك في روابط مجهولة.
-📲 حدّث جهازك وتطبيقاتك باستمرار.
-`;
-
-  }
-
-
-
-  /* الروابط */
-
-  if (
-    q.includes("رابط") ||
-    q.includes("مشبوه") ||
-    q.includes("لينك")
-  ) {
-
-    return `
-علامات الرابط المشبوه قد تشمل:
-
-• نطاق غريب أو مكتوب بطريقة مشابهة لموقع معروف.
-• طلب كلمة المرور أو رمز التحقق بشكل مفاجئ.
-• وعود بجوائز أو أموال بشكل مبالغ فيه.
-• رسالة تضغط عليك للتصرف بسرعة.
-
-لا تدخل معلوماتك الحساسة
-قبل التأكد من الموقع الرسمي.
-`;
-
-  }
-
-
-
-  /* الخصوصية */
-
-  if (
-    q.includes("خصوصية") ||
-    q.includes("بيانات") ||
-    q.includes("معلوماتي")
-  ) {
-
-    return `
-لحماية خصوصيتك:
-
-• لا تنشر معلوماتك الشخصية بشكل علني.
-• قلّل صلاحيات التطبيقات.
-• راجع إعدادات الخصوصية.
-• لا تشارك رموز التحقق.
-• تجنب إرسال وثائقك الشخصية لأشخاص مجهولين.
-`;
-
-  }
-
-
-
-  /* جواب افتراضي */
-
-  return `
-أفهم سؤالك 👍
-
-أنا المساعد الذكي الموجود داخل CAY.
-
-أستطيع حاليًا مساعدتك في مواضيع مثل:
-
-• الابتزاز الإلكتروني
-• سرقة الحسابات
-• حماية الحساب
-• كلمات المرور
-• الروابط المشبوهة
-• الخصوصية والأمان الرقمي
-
-اكتب سؤالك بشكل أوضح وسأحاول إرشادك.
+إذا تريد، أقدر أبدأ وياك Python من الصفر خطوة بخطوة.
 `;
 
 }
 
 
+/* HTML */
 
-/* =========================
-   زر الإرسال
-========================= */
+if(
+q.includes("html") ||
+q.includes("اتش تي ام ال")
+){
+
+return `
+🌐 HTML
+
+HTML تستخدم لبناء هيكل صفحات الويب.
+
+أهم العناصر:
+
+<h1>
+<p>
+<a>
+<img>
+<div>
+<button>
+<form>
+
+مثال:
+
+<h1>مرحبا CAY</h1>
+
+وبعدها تستخدم CSS للتصميم
+وJavaScript للتفاعل.
+`;
+
+}
+
+
+/* الشبكات */
+
+if(
+q.includes("ip") ||
+q.includes("dns") ||
+q.includes("شبك") ||
+q.includes("network")
+){
+
+return `
+🌐 الشبكات
+
+IP:
+عنوان يستخدم للتعرف على جهاز
+داخل شبكة.
+
+DNS:
+يحوّل أسماء المواقع مثل example.com
+إلى عناوين IP.
+
+ومن المواضيع المهمة أيضًا:
+
+TCP
+UDP
+HTTP
+HTTPS
+SSH
+DHCP
+NAT
+
+إذا تريد، أشرح لك الشبكات من الصفر.
+`;
+
+}
+
+
+/* Linux */
+
+if(
+q.includes("linux") ||
+q.includes("لينكس") ||
+q.includes("kali") ||
+q.includes("كالي")
+){
+
+return `
+🐧 Linux
+
+أوامر أساسية:
+
+pwd
+ls
+cd
+mkdir
+touch
+cp
+mv
+rm
+cat
+grep
+ip
+ping
+
+مثال:
+
+pwd
+
+يعرض المسار الحالي.
+
+و:
+
+ls
+
+يعرض الملفات الموجودة.
+
+أقدر أشرح لك كل أمر مع مثال عملي.
+`;
+
+}
+
+
+/* Termux */
+
+if(
+q.includes("termux") ||
+q.includes("ترمكس")
+){
+
+return `
+📱 Termux
+
+Termux يوفر لك بيئة طرفية على Android.
+
+يمكنك استخدامه للتعلم في:
+
+• Linux
+• Python
+• Git
+• SSH
+• البرمجة
+• إدارة الملفات
+
+مثال:
+
+pkg update
+
+ثم يمكنك تثبيت Python:
+
+pkg install python
+
+استخدم الأدوات على جهازك أو بيئة لديك تصريح باختبارها.
+`;
+
+}
+
+
+/* GitHub */
+
+if(
+q.includes("github") ||
+q.includes("جيت هب")
+){
+
+return `
+🐙 GitHub
+
+GitHub يستخدم لاستضافة وإدارة المشاريع.
+
+أهم الأشياء:
+
+Repository
+Commit
+Branch
+Clone
+Push
+Pull
+GitHub Pages
+
+وبإمكانك نشر موقع HTML مجاني
+باستخدام GitHub Pages.
+`;
+
+}
+
+
+/* الأمن السيبراني */
+
+if(
+q.includes("امن سيبراني") ||
+q.includes("cyber") ||
+q.includes("security") ||
+q.includes("اختبار اختراق") ||
+q.includes("penetration")
+){
+
+return `
+🛡️ الأمن السيبراني
+
+الأمن السيبراني يهتم بحماية:
+
+• الأجهزة
+• الشبكات
+• الحسابات
+• التطبيقات
+• البيانات
+
+ومن مجالاته:
+
+Web Security
+Network Security
+Digital Forensics
+Threat Analysis
+Penetration Testing
+Incident Response
+
+اختبار الاختراق يجب أن يكون على نظام
+تملكه أو لديك تصريح باختباره.
+`;
+
+}
+
+
+/* برمجة */
+
+if(
+q.includes("برمج") ||
+q.includes("كود") ||
+q.includes("code") ||
+q.includes("javascript") ||
+q.includes("css")
+){
+
+return `
+💻 البرمجة
+
+أقدر أساعدك في:
+
+Python
+HTML
+CSS
+JavaScript
+Git
+GitHub
+
+وأساعدك في فهم الأخطاء الموجودة
+في الكود وتصحيحها وشرح سبب المشكلة.
+`;
+
+}
+
+
+/* SSH */
+
+if(
+q.includes("ssh")
+){
+
+return `
+🔐 SSH
+
+SSH بروتوكول يستخدم للاتصال الآمن
+بجهاز أو خادم عن بعد.
+
+من المفاهيم المهمة:
+
+• SSH server
+• SSH client
+• username
+• password
+• SSH keys
+• ports
+
+استخدم SSH فقط مع الأجهزة والخوادم
+التي تملكها أو لديك تصريح للوصول إليها.
+`;
+
+}
+
+
+/* ثغرات */
+
+if(
+q.includes("ثغرة") ||
+q.includes("vulnerability")
+){
+
+return `
+🧪 الثغرات الأمنية
+
+الثغرة هي مشكلة يمكن أن تؤثر
+على أمان النظام أو التطبيق.
+
+للتعلم بشكل آمن:
+
+• استخدم مختبرات تعليمية.
+• اختبر تطبيقاتك أنت.
+• لا تختبر مواقع الآخرين بدون تصريح.
+• تعلم كيفية اكتشاف المشكلة ثم إصلاحها.
+
+أقدر أشرح لك أنواع الثغرات
+بأمثلة تعليمية آمنة.
+`;
+
+}
+
+
+/* AI */
+
+if(
+q.includes("ai") ||
+q.includes("ذكاء اصطناعي") ||
+q.includes("ذكاء")
+){
+
+return `
+🤖 الذكاء الاصطناعي
+
+يمكن استخدام AI في:
+
+• البرمجة
+• تحليل البيانات
+• المساعدة التعليمية
+• الأتمتة
+• تحليل النصوص
+• بناء المساعدات الذكية
+
+ويمكننا أيضًا شرح طريقة ربط موقع
+بمساعد AI باستخدام Backend آمن.
+`;
+
+}
+
+
+/* اختراق */
+
+if(
+q.includes("تهكير") ||
+q.includes("هكر") ||
+q.includes("hack") ||
+q.includes("اختراق")
+){
+
+return `
+🔐 إذا كنت تتعلم الاختراق الأخلاقي:
+
+أقدر أساعدك في التعلم على:
+
+• Linux
+• الشبكات
+• أساسيات Web Security
+• تحليل الثغرات
+• المختبرات التعليمية
+• CTF
+• الدفاع واكتشاف الهجمات
+
+أما اختراق حساب أو جهاز شخص آخر
+بدون إذن، فلا أستطيع إعطاء خطوات لذلك.
+
+إذا عندك مختبر خاص بك، اذكر نوعه
+وأساعدك بخطة تدريب آمنة.
+`;
+
+}
+
+
+/* جواب عام */
+
+return `
+🤖 المساعد الذكي في CAY
+
+سؤالك مفتوح، وأقدر أساعدك في مجالات مثل:
+
+💻 البرمجة
+🌐 الشبكات
+🐧 Linux
+📱 Termux
+🛡️ الأمن السيبراني
+🧪 اختبار الأمان
+🐙 GitHub
+🤖 الذكاء الاصطناعي
+🔐 حماية الحسابات
+
+اكتب سؤالك بالتفصيل حتى أعطيك جوابًا أدق.
+`;
+
+}
+
+
+/* Enter */
 
 send.addEventListener(
-  "click",
-  sendQuestion
+"click",
+sendQuestion
 );
 
 
-
-/* =========================
-   زر Enter
-========================= */
-
 question.addEventListener(
-  "keydown",
-  function(event) {
+"keydown",
+function(event){
 
-    if (
-      event.key === "Enter"
-    ) {
+if(event.key==="Enter"){
+sendQuestion();
+}
 
-      sendQuestion();
-
-    }
-
-  }
+}
 );
 
 </script>
-
 
 </body>
 </html>
